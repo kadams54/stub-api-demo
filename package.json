@@ -1,0 +1,17 @@
+{
+    "name": "nock-demo",
+    "version": "0.0.0",
+    "description": "Demostrating how to mock external API requests with nock.",
+    "scripts": {
+        "start": "node demo",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Kyle Adams",
+    "license": "UNLICENSED",
+    "dependencies": {
+        "nock": "^9.4.1"
+    },
+    "devDependencies": {
+        "cypress": "^3.0.2"
+    }
+}
