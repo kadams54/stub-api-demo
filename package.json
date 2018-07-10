@@ -4,14 +4,17 @@
     "description": "Demonstrates options for stubbing out server-side API calls so that UI/client-side tests aren't disturbing/dependent on external systems.",
     "scripts": {
         "start": "node demo",
-        "cypress:open": "cypress open"
+        "test": "cypress run",
+        "api": "json-server --id i db.json"
     },
     "author": "Kyle Adams",
     "license": "UNLICENSED",
     "dependencies": {
+        "dotenv": "^6.0.0",
         "nock": "^9.4.1"
     },
     "devDependencies": {
-        "cypress": "^3.0.2"
+        "cypress": "^3.0.2",
+        "json-server": "^0.14.0"
     }
 }

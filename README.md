@@ -6,24 +6,17 @@ Run `npm install`.
 
 ## Using
 
-1. Run `npm start`
-2. Go to http://localhost:8080
+1. Run the app: `npm start`
+1. Go to http://localhost:8080
 
 Behind the scenes, the Node app is making an API request to [OMDB](http://www.omdbapi.com) and extracting a movie title (Guardians of the Galaxy Vol 2.) from that request.
 
-Next, via another shell, run `npm cypress:open` to launch Cypress and run tests.
+Now we'll start up the API, restart the app and point it to the fake API:
 
-## The Whole Point
+1. Run the api: `npm run-script api`
+1. In another terminal, run the app: `API_URL=http://localhost:3000/movies/tt3896198 npm start`
+1. Go to http://localhost:8080
 
-When you hit the app via http://localhost:8080 the API call is made and "Guardians of the Galaxy Vol. 2" is returned. When the app is hit via Cypress, the API call is stubbed out and "Thor: Ragnarok" is substituted in as the title. If the API call is not stubbed out, the test will fail.
+The app is now pointed at the fake API provided by [json-server](https://github.com/typicode/json-server/), which is serving up JSON data defined in the [db.json](https://github.com/kadams54/stub-api-demo/blob/master/db.json) file.
 
-## Options
-
-There are two different approaches to stubbing out the server-side call:
-
-1. Run a second server alongside the first and point the first at the second during test runs. Have the second return fake API responses.
-2. Make it so that the API client can be toggled between stubbed responses and live calls.
-
-Both options are present in the code, though the second is enabled by default (because it's my personal preference).
-
-The first puts the complexity in the infrastructure, while the second puts the complexity in the code. Which approach you choose may depend on what your dev team is more comfortable tweaking.
+Finally, via a third terminal, run `npm test` to launch Cypress and run tests. The test asserts for the data provided by the fake API, so if the app is connected to the real API (or no API at all) the test will fail.

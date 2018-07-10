@@ -2,13 +2,15 @@
 
 'use strict';
 
+require('dotenv').config()
+
 var http = require('http'),
     server = http.createServer(),
-    API_URL = 'http://www.omdbapi.com/?i=tt3896198&apikey=8590cb60';
+    movie = {'Title': '[MOVIE TITLE PLACEHOLDER]'},
+    apiUrl = process.env.API_URL;
 
 server.on('request', function (req, res) {
-    var movie = {'Title': 'Howard the Duck'};
-    http.get(API_URL, apiRes => {
+    http.get(apiUrl, apiRes => {
         apiRes.setEncoding('utf8');
         var bodyChunks = [];
         apiRes.on('data', chunk => bodyChunks.push(chunk));
@@ -17,10 +19,10 @@ server.on('request', function (req, res) {
             res.writeHead(200, {
                 'Content-Type': 'text/html'
             });
-            res.end('<html><body><h1>The best movie ever is ' + movie.Title + '.</h1></body></html>');
+            res.end(`<html><body><h1>The best movie ever is ${movie.Title}.</h1></body></html>`);
         });
     })
 });
 
 server.listen(8080, 'localhost');
-console.log("Server listening");
+console.log('Server listening');
