@@ -15,13 +15,15 @@ Run `npm install`.
 
 1. Run the app: `npm start`.
 1. Go to http://localhost:8080 - note that it declares _Guardians of the Galaxy Vol. 2_ to be the best.
-1. Feel free to stop the app.
 
 Behind the scenes, the Node app is making an API request to [OMDB](http://www.omdbapi.com) and extracting a movie title (_Guardians of the Galaxy Vol. 2_) from that request.
 
 ### Asserting the API is Stubbed
 
-The demo includes a client side test ([demo.spec.js](https://github.com/kadams54/stub-api-demo/blob/master/demo.spec.js)) that runs in [Cypress](https://cypress.io/); that test's assertion will only pass if the movie data is taken from a local source and not the live API. Consequently we can run the test to prove that we're not using the live API. If you run it without doing either of the approaches below, it will fail as the default is to use the live API.
+The demo includes a client-side test ([demo.spec.js](https://github.com/kadams54/stub-api-demo/blob/master/demo.spec.js)) that runs in [Cypress](https://cypress.io/); that test's assertion will only pass if the movie data is taken from a local source and not the live API. Consequently we can run the test to prove that we're not using the live API. If you run it without doing either of the approaches below, it will fail as the default is to use the live API:
+
+1. In another terminal, run `npm test` and watch it fail.
+1. Feel free to stop the app.
 
 ### Running a Fake API Server
 
