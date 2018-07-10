@@ -13,7 +13,7 @@ Run `npm install`.
 
 ## Running
 
-1. Run the app: `npm start`.
+1. Start the app: `npm start`.
 1. Go to http://localhost:8080 - note that it declares _Guardians of the Galaxy Vol. 2_ to be the best.
 
 Behind the scenes, the Node app is making an API request to [OMDB](http://www.omdbapi.com) and extracting a movie title (_Guardians of the Galaxy Vol. 2_) from that request.
@@ -23,7 +23,7 @@ Behind the scenes, the Node app is making an API request to [OMDB](http://www.om
 The demo includes a client-side test ([demo.spec.js](https://github.com/kadams54/stub-api-demo/blob/master/demo.spec.js)) that runs in [Cypress](https://cypress.io/); that test's assertion will only pass if the movie data is taken from a local source and not the live API. Consequently we can run the test to prove that we're not using the live API. If you run it without doing either of the approaches below, it will fail as the default is to use the live API:
 
 1. In another terminal, run `npm test` and watch it fail.
-1. Feel free to stop the app.
+1. Stop (Ctrl + C) the app.
 
 ### Running a Fake API Server
 
@@ -33,7 +33,7 @@ We'll use [json-server](https://github.com/typicode/json-server/) to run a fake 
 1. In another terminal, run the app: `API_URL=http://localhost:3000/movies/ npm start`.
 1. Go to http://localhost:8080 - note that it now declares _Thor: Ragnarok_ to be the best.
 1. Run `npm test` to verify the stubbed API works.
-1. Feel free to stop everything.
+1. Stop the app and the fake API.
 
 ### Toggling the API Client
 
@@ -42,7 +42,7 @@ The api client is in, appropriately enough, [api.js](https://github.com/kadams54
 1. Run the app: `TEST_API=true npm start`.
 1. Go to http://localhost:8080 - note that it declares _Thor: Ragnarok_ to be the best.
 1. Run `npm test` to verify the stubbed API works.
-1. Feel free to stop the app.
+1. Stop the app.
 
 ## Note
 
